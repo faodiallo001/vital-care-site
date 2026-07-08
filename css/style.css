@@ -1,1 +1,329 @@
+/* =========================
+   RESET
+========================= */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f8fafc;
+    color:#1e293b;
+    line-height:1.7;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+}
+
+ul{
+    list-style:none;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+h1{
+    font-size:clamp(2.5rem,5vw,4.5rem);
+    line-height:1.1;
+    font-weight:800;
+}
+
+h2{
+    font-size:clamp(2rem,4vw,3rem);
+    margin-bottom:20px;
+    font-weight:700;
+}
+
+h3{
+    font-size:1.3rem;
+    margin-bottom:12px;
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-heading span{
+    color:#2563eb;
+    font-weight:700;
+    letter-spacing:2px;
+    font-size:.85rem;
+}
+
+.section-tag{
+    display:inline-block;
+    padding:8px 16px;
+    border-radius:50px;
+    background:#dbeafe;
+    color:#2563eb;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn-primary{
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:12px;
+    background:#2563eb;
+    color:white;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    background:#1d4ed8;
+}
+
+.btn-secondary{
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:12px;
+    border:2px solid #2563eb;
+    color:#2563eb;
+    font-weight:600;
+}
+
+.btn-secondary:hover{
+    background:#2563eb;
+    color:white;
+}
+
+/* =========================
+   PAGE HERO
+========================= */
+
+.page-hero{
+    padding:120px 0 80px;
+    text-align:center;
+    background:white;
+}
+
+.page-hero p{
+    max-width:800px;
+    margin:20px auto 0;
+    color:#64748b;
+}
+
+/* =========================
+   PROGRAMS
+========================= */
+
+.programs-section{
+    padding:100px 0;
+}
+
+.program-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.program-card{
+    background:white;
+    padding:40px;
+    border-radius:24px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.program-card:hover{
+    transform:translateY(-8px);
+}
+
+.program-icon{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.program-card p{
+    color:#64748b;
+    margin-bottom:20px;
+}
+
+.program-card ul{
+    margin-bottom:30px;
+}
+
+.program-card li{
+    padding:8px 0;
+    color:#475569;
+}
+
+/* =========================
+   WHY CHOOSE US
+========================= */
+
+.why-choose{
+    padding:100px 0;
+    background:white;
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.why-card{
+    background:#f8fafc;
+    padding:30px;
+    border-radius:20px;
+    border:1px solid #e2e8f0;
+}
+
+.why-card p{
+    color:#64748b;
+}
+
+/* =========================
+   CAREERS
+========================= */
+
+.career-opportunities{
+    padding:100px 0;
+}
+
+.career-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.career-card{
+    background:white;
+    padding:25px;
+    text-align:center;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+    font-weight:600;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    padding:120px 0;
+    text-align:center;
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #1e40af
+    );
+    color:white;
+}
+
+.cta h2{
+    margin-bottom:15px;
+}
+
+.cta p{
+    max-width:650px;
+    margin:auto;
+    margin-bottom:35px;
+    opacity:.9;
+}
+
+.cta .btn-primary{
+    background:white;
+    color:#2563eb;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:#0f172a;
+    color:white;
+    padding:80px 0 30px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:40px;
+}
+
+.footer h4{
+    margin-bottom:20px;
+}
+
+.footer a{
+    color:#cbd5e1;
+    display:block;
+    margin-bottom:10px;
+}
+
+.footer-bottom{
+    text-align:center;
+    margin-top:50px;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.1);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:992px){
+
+    .program-grid{
+        grid-template-columns:1fr;
+    }
+
+    .why-grid{
+        grid-template-columns:1fr;
+    }
+
+    .career-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .page-hero{
+        padding:90px 0 60px;
+    }
+
+    .program-card{
+        padding:30px;
+    }
+
+}
