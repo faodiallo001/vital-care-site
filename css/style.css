@@ -135,8 +135,12 @@ p{
 }
 
 .logo img{
-    height:120px;
+    height:140px;
     width:auto;
+}
+
+.footer-logo img{
+    width:140px;
 }
 
 .navbar ul{
