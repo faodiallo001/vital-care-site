@@ -216,7 +216,7 @@ p{
 
 
 .hero{
-    min-height:800px;
+    min-height:500px;
 padding-top:45px;
 
     background:
@@ -230,7 +230,7 @@ padding-top:45px;
         url("../images/hero-healthcare.PNG");
 
     background-size:cover;
-    background-position:62% center;
+    background-position:center center;
 
     display:flex;
     align-items:center;
