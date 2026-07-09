@@ -623,6 +623,17 @@ main{
     line-height:1.7;
     color:rgba(255,255,255,.82);
 }
+.why-icon{
+    margin-bottom:18px;
+}
+
+.why-icon img{
+    width:34px;
+    height:34px;
+    object-fit:contain;
+    opacity:.95;
+}
+
 
 @media(max-width:992px){
 
