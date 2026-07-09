@@ -566,47 +566,77 @@ main{
 
 .why-us{
 
-    padding:150px 0 130px;
-
     background:
-    radial-gradient(
-        circle at top,
-        rgba(200,169,107,.08),
-        transparent 45%
-    ),
-    #111111;
+    linear-gradient(
+        90deg,
+        #5d1616 0%,
+        #6f1d1b 40%,
+        #581514 100%
+    );
 
+    padding:70px 0;
 }
 
-.why-grid{
+.why-wrapper{
 
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-
-}
-.why-grid{
-    margin-bottom:80px;
+    grid-template-columns:1.4fr repeat(5,1fr);
+    gap:35px;
+    align-items:flex-start;
 }
 
-.why-card{
+.why-intro h2{
 
-    padding:35px;
-
-    background:rgba(255,255,255,.04);
-
-    backdrop-filter:blur(10px);
-
-    border-radius:16px;
-
-    border:1px solid rgba(255,255,255,.08);
-
-}
-
-.why-card h3{
+    font-size:3rem;
+    line-height:1.1;
+    margin:0;
     color:white;
 }
 
+.why-intro span{
+    color:var(--gold);
+}
+
+.why-item{
+    text-align:left;
+}
+
+.why-icon{
+
+    font-size:2rem;
+    color:var(--gold);
+
+    margin-bottom:18px;
+}
+
+.why-item h3{
+
+    font-size:1.2rem;
+    color:white;
+
+    margin-bottom:12px;
+}
+
+.why-item p{
+
+    font-size:.95rem;
+    line-height:1.7;
+    color:rgba(255,255,255,.82);
+}
+
+@media(max-width:992px){
+
+    .why-wrapper{
+
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .why-intro{
+        text-align:center;
+    }
+
+}
 /* ===================================
    CAREERS
 =================================== */
