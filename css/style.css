@@ -734,6 +734,18 @@ main{
 
     font-size:1rem;
 }
+
+@media(max-width:992px){
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .about-image{
+        height:350px;
+    }
+
+}
 /* ===================================
    CTA
 =================================== */
