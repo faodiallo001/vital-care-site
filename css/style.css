@@ -331,6 +331,66 @@ main{
     padding:120px 0;
 }
 
+/* ===========================
+   PROGRAMS HEADER
+=========================== */
+
+.programs{
+    padding:120px 0;
+}
+
+.programs-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:60px;
+    margin-bottom:60px;
+}
+
+.programs-left{
+    flex:1;
+}
+
+.programs-right{
+    max-width:420px;
+}
+
+.programs-right p{
+    color:var(--text-muted);
+    font-size:1.05rem;
+    line-height:1.8;
+}
+
+.programs-label{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:15px;
+}
+
+.programs-label span{
+    color:var(--gold);
+    font-size:.9rem;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    white-space:nowrap;
+}
+
+.programs-label .line{
+    width:120px;
+    height:1px;
+    background:var(--gold);
+    opacity:.6;
+}
+
+.programs-left h2{
+    font-size:clamp(2.2rem,4vw,3.8rem);
+    font-family:Georgia, serif;
+    font-weight:400;
+    margin-bottom:0;
+}
+
 .program-grid{
 
     display:grid;
