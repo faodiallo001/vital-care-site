@@ -820,6 +820,86 @@ main{
     margin:0;
 }
 
+/* ==========================
+   READY TO START CTA
+========================== */
+
+.journey-cta{
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.55)
+    ),
+    url('../images/cta-healthcare.jpg');
+
+    background-size:cover;
+    background-position:center;
+
+    padding:55px 80px;
+
+}
+
+.journey-overlay{
+
+    display:grid;
+    grid-template-columns:1.3fr 1fr auto;
+    align-items:center;
+    gap:40px;
+
+}
+
+.journey-cta h2{
+
+    font-size:clamp(2rem,3vw,3rem);
+    line-height:1.1;
+    margin:0;
+    color:white;
+
+}
+
+.journey-cta p{
+
+    color:#f4f1ea;
+    max-width:420px;
+    margin:0;
+
+}
+
+.journey-btn{
+
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+
+    padding:18px 36px;
+
+    border:1px solid var(--gold);
+
+    color:var(--gold);
+
+    transition:.35s;
+
+}
+
+.journey-btn span{
+
+    transition:.35s;
+
+}
+
+.journey-btn:hover span{
+
+    transform:translateX(8px);
+
+}
+
+.journey-btn:hover{
+
+    background:rgba(200,169,107,.12);
+
+}
+
 @media(max-width:992px){
 
     .journey-content{
