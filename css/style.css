@@ -401,6 +401,7 @@ main{
 
 .program-card{
     position:relative;
+    text-align:left;
 }
 
 .program-number{
