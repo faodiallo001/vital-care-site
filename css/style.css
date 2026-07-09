@@ -107,7 +107,7 @@ p{
 
 .section-heading{
     text-align:center;
-    margin-bottom:70px;
+    margin-bottom:90px;
 }
 
 /* =========================
@@ -216,8 +216,9 @@ p{
 
 
 .hero{
-    min-height:800px;
-padding-top:45px;
+    height:620px;
+    padding-top:90px;
+    margin-bottom:80px;
 
     background:
         linear-gradient(
@@ -393,13 +394,12 @@ padding-top:45px;
 
 .why-us{
 
-    padding:120px 0;
+    padding:150px 0 130px;
 
-    background:
-    linear-gradient(
-        135deg,
-        #3f1313,
-        #6f1d1b
+    background:linear-gradient(
+        180deg,
+        #111111,
+        #181818
     );
 
 }
@@ -410,6 +410,9 @@ padding-top:45px;
     grid-template-columns:repeat(3,1fr);
     gap:25px;
 
+}
+.why-grid{
+    margin-bottom:80px;
 }
 
 .why-card{
