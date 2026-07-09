@@ -403,6 +403,17 @@ main{
     position:relative;
     text-align:left;
 }
+.program-card{
+    text-align:center;
+}
+.program-icon{
+    margin:0 auto 20px;
+}
+.program-card h3,
+.program-card h2,
+.program-card p{
+    text-align:center;
+}
 
 .program-number{
     position:absolute;
