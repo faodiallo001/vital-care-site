@@ -236,6 +236,11 @@ p{
     display:flex;
     align-items:center;
 }
+
+main{
+    padding-top:110px;
+}
+
 .hero-content{
     width:90%;
     max-width:1300px;
