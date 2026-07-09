@@ -396,11 +396,13 @@ p{
 
     padding:150px 0 130px;
 
-    background:linear-gradient(
-        180deg,
-        #111111,
-        #181818
-    );
+    background:
+    radial-gradient(
+        circle at top,
+        rgba(200,169,107,.08),
+        transparent 45%
+    ),
+    #111111;
 
 }
 
