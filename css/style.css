@@ -1909,27 +1909,7 @@ PROGRAM OVERVIEW
     border-color:var(--gold);
 }
 
-.support-icon{
-    width:58px;
-    height:58px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    margin-bottom:24px;
-
-    border:1px solid rgba(200,169,107,.25);
-    border-radius:14px;
-
-    background:rgba(200,169,107,.07);
-}
-
-.support-icon img{
-    width:30px;
-    height:30px;
-    object-fit:contain;
-}
 
 .support-card h3{
     color:var(--text);
