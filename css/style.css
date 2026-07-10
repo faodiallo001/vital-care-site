@@ -167,7 +167,11 @@ p{
 
 .nav-book-online{
 
-    background:#6f1d1b;
+    background:linear-gradient(
+        135deg,
+        #6f1d1b,
+        #8d2b27
+    );
 
     color:white !important;
 
@@ -175,19 +179,19 @@ p{
 
     border-radius:8px;
 
-    transition:.3s;
+    font-weight:600;
 
-    display:inline-block;
+    box-shadow:0 8px 20px rgba(111,29,27,.25);
+
+    transition:.3s;
 
 }
 
 .nav-book-online:hover{
 
-    background:#8d2b27;
-
-    color:white !important;
-
     transform:translateY(-2px);
+
+    box-shadow:0 12px 25px rgba(111,29,27,.35);
 
 }
 
