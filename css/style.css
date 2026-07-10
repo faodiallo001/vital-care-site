@@ -165,6 +165,32 @@ p{
     color:#c8a96b;
 }
 
+.nav-book-online{
+
+    background:#6f1d1b;
+
+    color:white !important;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    transition:.3s;
+
+    display:inline-block;
+
+}
+
+.nav-book-online:hover{
+
+    background:#8d2b27;
+
+    color:white !important;
+
+    transform:translateY(-2px);
+
+}
+
 @media(max-width:992px){
 
     .navbar{
