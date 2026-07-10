@@ -1679,6 +1679,32 @@ PROGRAM OVERVIEW
 }
 
 /* ===================================
+   CNA TO HHA TRANSITION
+=================================== */
+
+.transition-detail{
+    background:#0f0f0f;
+}
+
+.transition-detail .program-detail-image img{
+    min-height:620px;
+    object-fit:cover;
+}
+
+.transition-detail .curriculum-section{
+    margin-top:90px;
+}
+
+.transition-detail .curriculum-section .section-tag{
+    text-align:center;
+}
+
+.transition-detail .admission-box{
+    border-left-color:var(--burgundy-light);
+}
+
+
+/* ===================================
    MOBILE
 =================================== */
 
