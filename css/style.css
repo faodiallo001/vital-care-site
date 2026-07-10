@@ -1702,7 +1702,105 @@ PROGRAM OVERVIEW
 .transition-detail .admission-box{
     border-left-color:var(--burgundy-light);
 }
+/* ===================================
+   PROGRAM BENEFITS
+=================================== */
 
+.program-benefits{
+
+    padding:120px 0;
+
+    background:
+    linear-gradient(
+        135deg,
+        #5d1616,
+        #6f1d1b
+    );
+
+}
+
+.benefits-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
+}
+
+.benefit-card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:35px;
+
+    transition:.35s;
+}
+
+.benefit-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.benefit-icon{
+
+    margin-bottom:20px;
+
+}
+
+.benefit-icon img{
+
+    width:40px;
+    height:40px;
+
+}
+
+.benefit-card h3{
+
+    color:white;
+
+    margin-bottom:15px;
+
+}
+
+.benefit-card p{
+
+    color:rgba(255,255,255,.82);
+
+}
+
+@media(max-width:992px){
+
+    .benefits-grid{
+
+        grid-template-columns:1fr;
+    }
+
+}
+
+.program-status{
+
+    display:inline-block;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    background:rgba(200,169,107,.12);
+
+    color:var(--gold);
+
+    font-size:.85rem;
+
+    margin-bottom:20px;
+
+}
 
 /* ===================================
    MOBILE
