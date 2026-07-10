@@ -1334,6 +1334,98 @@ main{
 
 }
 
+/* =========================
+   PROGRAMS HERO
+========================= */
+
+.programs-hero{
+    min-height:70vh;
+
+    display:flex;
+    align-items:center;
+
+    padding:140px 0 100px;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.75),
+        rgba(0,0,0,.75)
+    ),
+    url("../images/programs-hero.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.programs-hero-content{
+    max-width:700px;
+}
+
+.programs-hero .hero-tag{
+    display:inline-block;
+
+    color:#d4af37;
+
+    letter-spacing:3px;
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+}
+
+.programs-hero h1{
+    font-size:4rem;
+    line-height:1.1;
+
+    color:white;
+
+    margin-bottom:25px;
+}
+
+.programs-hero h1 span{
+    color:#d4af37;
+}
+
+.programs-hero p{
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+    color:#d0d0d0;
+
+    max-width:600px;
+
+    margin-bottom:35px;
+}
+
+.programs-hero .hero-buttons{
+    display:flex;
+    gap:15px;
+}
+
+@media(max-width:768px){
+
+    .programs-hero{
+        min-height:60vh;
+        padding:120px 0 80px;
+    }
+
+    .programs-hero h1{
+        font-size:2.6rem;
+    }
+
+    .programs-hero p{
+        font-size:1rem;
+    }
+
+    .programs-hero .hero-buttons{
+        flex-direction:column;
+    }
+
+}
+
 /* ===================================
    MOBILE
 =================================== */
