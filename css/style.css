@@ -2246,6 +2246,198 @@ PROGRAM OVERVIEW
 
 }
 
+
+/* ===================================
+   CAREERS BENEFITS
+=================================== */
+
+.careers-benefits{
+    padding:120px 0;
+    background:#050505;
+}
+
+.benefits-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    margin-top:60px;
+}
+
+.benefit-card{
+    background:#0b0b0b;
+    border:1px solid rgba(201,169,110,.15);
+    border-radius:24px;
+    padding:40px 30px;
+    text-align:center;
+    transition:.35s;
+}
+
+.benefit-card:hover{
+    transform:translateY(-8px);
+    border-color:#c9a96e;
+}
+
+.benefit-card img{
+    width:90px;
+    height:90px;
+    object-fit:contain;
+    margin-bottom:25px;
+}
+
+.benefit-card h3{
+    color:#fff;
+    margin-bottom:15px;
+}
+
+.benefit-card p{
+    color:#b7b7b7;
+    line-height:1.7;
+}
+
+
+/* ===================================
+   CAREER CONTACT
+=================================== */
+
+.career-contact{
+    padding:120px 0;
+    background:#090909;
+}
+
+.career-contact-card{
+    background:#101010;
+    border:1px solid rgba(201,169,110,.15);
+    border-radius:30px;
+    padding:70px;
+    text-align:center;
+}
+
+.career-contact-card h2{
+    margin:15px 0 20px;
+}
+
+.career-contact-card p{
+    color:#b7b7b7;
+}
+
+.career-contact-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    margin-top:60px;
+}
+
+.career-contact-item{
+    background:#151515;
+    padding:30px;
+    border-radius:20px;
+}
+
+.career-contact-item img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    margin-bottom:20px;
+}
+
+.career-contact-item h3{
+    margin-bottom:12px;
+    color:#fff;
+}
+
+.career-contact-item p,
+.career-contact-item a{
+    color:#c9a96e;
+    text-decoration:none;
+}
+
+.career-buttons{
+    margin-top:50px;
+
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+
+/* ===================================
+   CAREERS CTA
+=================================== */
+
+.career-cta{
+    padding:120px 0;
+    text-align:center;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.75),
+        rgba(0,0,0,.75)
+    ),
+    url("../images/careers-cta.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.career-cta h2{
+    max-width:700px;
+    margin:0 auto 20px;
+}
+
+.career-cta p{
+    max-width:650px;
+    margin:0 auto 40px;
+    color:#b7b7b7;
+}
+
+
+/* ===================================
+   MOBILE
+=================================== */
+
+@media(max-width:992px){
+
+    .benefits-grid,
+    .career-contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .career-contact-card{
+        padding:40px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .careers-benefits,
+    .career-contact,
+    .career-cta{
+        padding:80px 0;
+    }
+
+    .benefit-card,
+    .career-contact-item{
+        padding:25px;
+    }
+
+    .career-contact-card{
+        padding:30px 25px;
+    }
+
+    .benefit-card img{
+        width:70px;
+        height:70px;
+    }
+
+    .career-contact-item img{
+        width:60px;
+        height:60px;
+    }
+
+}
+
 /* =========================
    APPLY HERO
 ========================= */
