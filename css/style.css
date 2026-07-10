@@ -1,4 +1,3 @@
-\
 /* ===================================]
    RESET
 =================================== */
@@ -1095,6 +1094,224 @@ main{
 
 .mobile-menu.active{
     display:flex;
+}
+
+/* ===================================
+   ABOUT STORY
+=================================== */
+
+.about-story{
+    padding:120px 0;
+    background:#0f0f0f;
+}
+
+.story-grid{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.story-image img{
+    width:100%;
+    border-radius:20px;
+    border:1px solid var(--border);
+}
+
+.story-content h2{
+    margin-bottom:25px;
+}
+
+.story-content p{
+    margin-bottom:20px;
+}
+
+/* ===================================
+   LEADERSHIP
+=================================== */
+
+.leadership{
+    padding:120px 0;
+    background:#131313;
+}
+
+.leader-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:35px;
+}
+
+.leader-card{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    transition:.35s;
+}
+
+.leader-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--gold);
+}
+
+.leader-card img{
+
+    width:100%;
+    height:420px;
+
+    object-fit:cover;
+}
+
+.leader-card h3{
+
+    padding:30px 30px 15px;
+
+    color:white;
+}
+
+.leader-card p{
+
+    padding:0 30px;
+    margin-bottom:18px;
+}
+
+.leader-card p:last-child{
+    padding-bottom:30px;
+}
+
+/* ===================================
+   WHAT MAKES US DIFFERENT
+=================================== */
+
+.difference-section{
+    padding:120px 0;
+    background:#0f0f0f;
+}
+
+.difference-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.difference-card{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:35px;
+
+    transition:.35s;
+}
+
+.difference-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--gold);
+}
+
+.difference-number{
+
+    width:55px;
+    height:55px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:var(--burgundy);
+
+    color:white;
+
+    border-radius:8px;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+}
+
+.difference-card h3{
+
+    color:white;
+
+    margin-bottom:15px;
+}
+
+/* ===================================
+   MISSION VISION
+=================================== */
+
+.mission-vision{
+    padding:120px 0;
+    background:#131313;
+}
+
+.mission-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:35px;
+}
+
+.mission-card{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:45px;
+}
+
+.mission-card h3{
+
+    color:white;
+
+    margin-bottom:18px;
+}
+
+/* ===================================
+   ABOUT PAGE MOBILE
+=================================== */
+
+@media(max-width:992px){
+
+    .story-grid{
+        grid-template-columns:1fr;
+    }
+
+    .leader-grid{
+        grid-template-columns:1fr;
+    }
+
+    .difference-grid{
+        grid-template-columns:1fr;
+    }
+
+    .mission-grid{
+        grid-template-columns:1fr;
+    }
+
+    .story-content,
+    .section-heading{
+        text-align:center;
+    }
+
+    .leader-card img{
+        height:320px;
+    }
+
 }
 
 @media(max-width:992px){
