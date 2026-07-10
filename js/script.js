@@ -1,21 +1,24 @@
-fetch("components/header.html")
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById("header").innerHTML = data;
-    });
 
-fetch("components/footer.html")
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById("footer").innerHTML = data;
-    });
 document.addEventListener("DOMContentLoaded", () => {
 
     fetch("components/header.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("header").innerHTML = data;
-        });
+    .then(response => response.text())
+    .then(data => {
+
+        document.getElementById("header").innerHTML = data;
+
+        const menuToggle = document.getElementById("menuToggle");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        if(menuToggle && mobileMenu){
+
+            menuToggle.addEventListener("click", () => {
+                mobileMenu.classList.toggle("active");
+            });
+
+        }
+
+    });
 
     fetch("components/footer.html")
         .then(response => response.text())
@@ -64,9 +67,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-const menuToggle = document.getElementById("menuToggle");
-const mobileMenu = document.getElementById("mobileMenu");
 
-menuToggle.addEventListener("click", () => {
-    mobileMenu.classList.toggle("active");
-});
