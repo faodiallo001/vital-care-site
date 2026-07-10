@@ -1042,11 +1042,77 @@ main{
     font-size:.9rem;
 }
 
+
+
+
+
 @media(max-width:992px){
 
     .footer-grid{
         grid-template-columns:1fr;
         gap:40px;
+    }
+
+}
+
+
+.menu-toggle{
+    display:none;
+    font-size:2rem;
+    color:var(--gold);
+    cursor:pointer;
+}
+
+.mobile-menu{
+    position:absolute;
+    top:90px;
+    left:0;
+    width:100%;
+
+    background:#0f0f0f;
+
+    display:none;
+    flex-direction:column;
+
+    padding:30px;
+
+    border-top:1px solid rgba(200,169,107,.15);
+}
+
+.mobile-menu a{
+    color:white;
+    padding:15px 0;
+    border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.mobile-apply{
+    margin-top:20px;
+    text-align:center;
+    border:1px solid var(--gold);
+    color:var(--gold) !important;
+    padding:15px;
+}
+
+.mobile-menu.active{
+    display:flex;
+}
+
+@media(max-width:992px){
+
+    .navbar{
+        display:none;
+    }
+
+    .desktop-btn{
+        display:none;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .logo img{
+        height:120px;
     }
 
 }
