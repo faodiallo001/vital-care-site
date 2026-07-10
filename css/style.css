@@ -2066,6 +2066,18 @@ PROGRAM OVERVIEW
     text-decoration:none;
     font-weight:600;
 }
+
+.payment-notice-icon{
+    margin-bottom:25px;
+}
+
+.payment-notice-icon img{
+    width:80px;
+    height:80px;
+    object-fit:contain;
+}
+
+
 @media(max-width:992px){
 
     .payment-program-grid{
