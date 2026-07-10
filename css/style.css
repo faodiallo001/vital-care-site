@@ -1910,6 +1910,12 @@ PROGRAM OVERVIEW
 }
 
 
+.support-icon img{
+    width:64px;
+    height:64px;
+}
+
+
 
 .support-card h3{
     color:var(--text);
