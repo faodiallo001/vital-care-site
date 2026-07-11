@@ -1679,17 +1679,7 @@ PROGRAM OVERVIEW
 
 }
 
-@media(min-width:993px){
 
-    .alternate .program-detail-content{
-        order:1;
-    }
-
-    .alternate .program-detail-image{
-        order:2;
-    }
-
-}
 
 @media(max-width:992px){
 
