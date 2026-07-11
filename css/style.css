@@ -2478,6 +2478,22 @@ PROGRAM OVERVIEW
 
 @media(max-width:992px){
 
+    .program-detail-grid{
+        grid-template-columns:1fr;
+    }
+
+    .program-detail-image{
+        order:1;
+    }
+
+    .program-detail-content{
+        order:2;
+    }
+
+}
+
+@media(max-width:992px){
+
     .benefits-grid,
     .career-contact-grid{
         grid-template-columns:1fr;
