@@ -2458,20 +2458,7 @@ PROGRAM OVERVIEW
    CAREERS CTA
 =================================== */
 
-.career-cta{
-    padding:120px 0;
-    text-align:center;
 
-    background:
-    linear-gradient(
-        rgba(0,0,0,.75),
-        rgba(0,0,0,.75)
-    ),
-    url("../images/careers-cta.jpg");
-
-    background-size:cover;
-    background-position:center;
-}
 
 .career-cta h2{
     max-width:700px;
