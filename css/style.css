@@ -1750,22 +1750,15 @@ PROGRAM OVERVIEW
 }
 
 .benefit-card{
-
-    background:rgba(255,255,255,.05);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:20px;
-
-    padding:35px;
-
-    transition:.35s;
+    background:transparent;
+    border:none;
+    border-radius:0;
+    padding:20px;
+    text-align:center;
 }
 
 .benefit-card:hover{
-
-    transform:translateY(-8px);
-
+    transform:none;
 }
 
 .benefit-icon{
@@ -1796,8 +1789,8 @@ PROGRAM OVERVIEW
 }
 
 .program-benefits .benefit-icon img{
-    width:50px !important;
-    height:50px !important;
+    width:70px !important;
+    height:70px !important;
     object-fit:contain;
 }
 .program-benefits .benefit-card{
