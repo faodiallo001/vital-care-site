@@ -1822,6 +1822,29 @@ PROGRAM OVERVIEW
 
 }
 
+@media(max-width:992px){
+
+    .program-detail-grid{
+        display:flex !important;
+        flex-direction:column !important;
+    }
+
+    .program-detail-image{
+        width:100%;
+        margin-bottom:30px;
+    }
+
+    .program-detail-content{
+        width:100%;
+    }
+
+    .program-detail-image img{
+        width:100%;
+        height:280px;
+        object-fit:cover;
+    }
+
+}
 /* ===================================
    CONTACT PAGE
 =================================== */
