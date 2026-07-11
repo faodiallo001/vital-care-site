@@ -2278,7 +2278,7 @@ PROGRAM OVERVIEW
 }
 
 .benefit-card img{
-    width:150px;
+    width:250px;
     height:150px;
     object-fit:contain;
     margin-bottom:25px;
@@ -2427,8 +2427,8 @@ PROGRAM OVERVIEW
     }
 
     .benefit-card img{
-        width:70px;
-        height:70px;
+        width:150px;
+        height:150px;
     }
 
     .career-contact-item img{
