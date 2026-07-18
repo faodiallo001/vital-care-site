@@ -2,16 +2,6 @@ const Stripe = require("stripe");
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-const prices = {
-
-    cna: "price_1TuaB9K5NPnHKPxJiuOAyV2g",
-
-    hha: "price_1TuaBeK5NPnHKPxJa9WzAEeM",
-
-    transition: "price_1TuaC9K5NPnHKPxJcWZTxvFc"
-
-};
-
 module.exports = async function handler(req, res) {
 
     if (req.method !== "POST") {
@@ -24,14 +14,12 @@ module.exports = async function handler(req, res) {
 
     try {
 
-        const { program } = req.body;
+        const { priceId } = req.body;
 
-        const price = prices[program];
-
-        if (!price) {
+        if (!priceId) {
 
             return res.status(400).json({
-                message: "Invalid program."
+                message: "Missing Price ID."
             });
 
         }
@@ -43,22 +31,17 @@ module.exports = async function handler(req, res) {
             payment_method_types: ["card"],
 
             line_items: [
-
                 {
-
-                    price,
-
+                    price: priceId,
                     quantity: 1
-
                 }
-
             ],
 
             success_url:
-                "https://vital-care-site.vercel.app/payment-success.html?session_id={CHECKOUT_SESSION_ID}",
+                "https://TON-DOMAINE.com/payment-success.html?session_id={CHECKOUT_SESSION_ID}",
 
             cancel_url:
-                "https://vital-care-site.vercel.app/programs.html"
+                "https://TON-DOMAINE.com/book-online.html"
 
         });
 
@@ -80,4 +63,4 @@ module.exports = async function handler(req, res) {
 
     }
 
-};
+}
