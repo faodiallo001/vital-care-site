@@ -28,6 +28,8 @@ module.exports = async function handler(req, res) {
 
             mode: "payment",
 
+            allow_promotion_codes: true,
+
             payment_method_types: ["card"],
 
             line_items: [
