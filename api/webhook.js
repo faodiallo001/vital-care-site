@@ -54,17 +54,31 @@ module.exports = async (req, res) => {
 
         case "checkout.session.completed":
 
-            const session = event.data.object;
+    const session = event.data.object;
 
-            console.log("✅ PAYMENT SUCCESS");
+    console.log("====================================");
+    console.log("✅ NEW REGISTRATION RECEIVED");
+    console.log("====================================");
 
-            console.log(session.id);
+    console.log("Session ID:", session.id);
 
-            console.log(session.amount_total);
+    console.log("Program:", session.metadata.program);
 
-            console.log(session.customer_details?.email);
+    console.log("First Name:", session.metadata.firstName);
 
-            break;
+    console.log("Last Name:", session.metadata.lastName);
+
+    console.log("Email:", session.metadata.email);
+
+    console.log("Phone:", session.metadata.phone);
+
+    console.log("Amount Paid:", `$${(session.amount_total / 100).toFixed(2)}`);
+
+    console.log("Payment Status:", session.payment_status);
+
+    console.log("====================================");
+
+    break;
 
         default:
 
