@@ -40,7 +40,7 @@ module.exports = async function handler(req, res) {
             ],
 
            success_url:
-"https://www.vitalcareah.com/payment-success.html?session_id={CHECKOUT_SESSION_ID}",
+"https://www.vitalcareah.com/success.html?session_id={CHECKOUT_SESSION_ID}",
 
 cancel_url:
 "https://www.vitalcareah.com/cancel.html"
