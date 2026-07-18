@@ -68,3 +68,32 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+async function payRegistration(program){
+
+    const response = await fetch("/api/create-checkout-session",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+            program
+        })
+
+    });
+
+    const data = await response.json();
+
+    if(data.url){
+
+        window.location.href = data.url;
+
+    }else{
+
+        alert("Unable to start payment.");
+
+    }
+
+}
