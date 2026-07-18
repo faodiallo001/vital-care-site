@@ -37,12 +37,12 @@ module.exports = async function handler(req, res) {
                 }
             ],
 
-            success_url:
-                "https://TON-DOMAINE.com/payment-success.html?session_id={CHECKOUT_SESSION_ID}",
+           success_url:
+"https://www.vitalcareah.com/payment-success.html?session_id={CHECKOUT_SESSION_ID}",
 
-            cancel_url:
-                "https://TON-DOMAINE.com/book-online.html"
-
+cancel_url:
+"https://www.vitalcareah.com/cancel.html"
+            
         });
 
         return res.status(200).json({
