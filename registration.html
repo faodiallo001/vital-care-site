@@ -1,1 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Student Registration | Vital Care Allied Health Training Institute
+    </title>
+
+    <meta name="description"
+        content="Complete your registration and continue to secure payment.">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <main>
+
+        <!-- ===========================
+             HERO
+        ============================ -->
+
+        <section class="apply-hero">
+
+            <div class="container">
+
+                <div class="apply-hero-content">
+
+                    <span class="section-tag">
+                        STUDENT REGISTRATION
+                    </span>
+
+                    <h1>
+                        Complete Your
+                        <span>Registration</span>
+                    </h1>
+
+                    <p>
+                        Please complete the form below before continuing to the secure payment page.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ===========================
+             REGISTRATION
+        ============================ -->
+
+        <section class="registration-section">
+
+            <div class="container">
+
+                <div class="registration-wrapper">
+
+                    <!-- LEFT -->
+
+                    <div class="registration-card">
+
+                        <span class="section-tag">
+                            STUDENT INFORMATION
+                        </span>
+
+                        <h2>
+                            Registration Form
+                        </h2>
+
+                        <form id="registrationForm">
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+
+                                    <label>
+                                        First Name *
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="firstName"
+                                        required>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Last Name *
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="lastName"
+                                        required>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>
+                                    Email Address *
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>
+                                    Phone Number *
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    required>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                    <!-- RIGHT -->
+
+                    <div class="registration-summary">
+
+                        <span class="section-tag">
+                            REGISTRATION SUMMARY
+                        </span>
+
+                        <h2>
+                            Selected Program
+                        </h2>
+
+                        <div class="summary-box">
+
+                            <div class="summary-row">
+
+                                <span>
+                                    Program
+                                </span>
+
+                                <strong id="programName">
+                                    Loading...
+                                </strong>
+
+                            </div>
+
+                            <div class="summary-row">
+
+                                <span>
+                                    Registration Fee
+                                </span>
+
+                                <strong id="programPrice">
+                                    --
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                        <div class="secure-box">
+
+                            🔒 Secure Payment
+
+                        </div>
+
+                        <div class="confirmation-box">
+
+                            <label class="checkbox">
+
+                                <input
+                                    type="checkbox"
+                                    id="confirmInfo">
+
+                                <span>
+                                    I confirm that the information provided is accurate.
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                        <button
+                            id="continuePayment"
+                            class="stripe-payment-btn">
+
+                            Continue to Secure Payment
+
+                            <span>→</span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
