@@ -14,12 +14,28 @@ module.exports = async function handler(req, res) {
 
     try {
 
-        const { priceId } = req.body;
+        const {
 
-        if (!priceId) {
+            priceId,
+            firstName,
+            lastName,
+            email,
+            phone,
+            program
+
+        } = req.body;
+
+        if (
+            !priceId ||
+            !firstName ||
+            !lastName ||
+            !email ||
+            !phone ||
+            !program
+        ) {
 
             return res.status(400).json({
-                message: "Missing Price ID."
+                message: "Missing required information."
             });
 
         }
@@ -32,6 +48,8 @@ module.exports = async function handler(req, res) {
 
             payment_method_types: ["card"],
 
+            customer_email: email,
+
             line_items: [
                 {
                     price: priceId,
@@ -39,12 +57,22 @@ module.exports = async function handler(req, res) {
                 }
             ],
 
-           success_url:
-"https://www.vitalcareah.com/success.html?session_id={CHECKOUT_SESSION_ID}",
+            metadata: {
 
-cancel_url:
-"https://www.vitalcareah.com/cancel.html"
-            
+                firstName,
+                lastName,
+                email,
+                phone,
+                program
+
+            },
+
+            success_url:
+                "https://www.vitalcareah.com/success.html?session_id={CHECKOUT_SESSION_ID}",
+
+            cancel_url:
+                "https://www.vitalcareah.com/cancel.html"
+
         });
 
         return res.status(200).json({
