@@ -68,31 +68,41 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-async function payRegistration(program){
+async function payRegistration(priceId){
 
-    const response = await fetch("/api/create-checkout-session",{
+    try{
 
-        method:"POST",
+        const response = await fetch("/api/create-checkout-session",{
 
-        headers:{
-            "Content-Type":"application/json"
-        },
+            method:"POST",
 
-        body:JSON.stringify({
-            program
-        })
+            headers:{
+                "Content-Type":"application/json"
+            },
 
-    });
+            body:JSON.stringify({
+                priceId
+            })
 
-    const data = await response.json();
+        });
 
-    if(data.url){
+        const data = await response.json();
 
-        window.location.href = data.url;
+        if(data.url){
 
-    }else{
+            window.location.href = data.url;
 
-        alert("Unable to start payment.");
+        }else{
+
+            alert(data.message || "Unable to start payment.");
+
+        }
+
+    }catch(error){
+
+        console.error(error);
+
+        alert("Something went wrong. Please try again.");
 
     }
 
