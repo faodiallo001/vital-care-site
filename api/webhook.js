@@ -168,7 +168,7 @@ async function sendRegistrationEmails(session) {
                     "Vital Care Admissions <admissions@vitalcareah.com>",
 
                 to: [
-                    "faodiallo001@gmail.com"
+                    "vitalcare.alliedschool@gmail.com"
                 ],
 
                 reply_to:
@@ -309,7 +309,7 @@ async function sendRegistrationEmails(session) {
                 ],
 
                 reply_to:
-                    "faodiallo001@gmail.com",
+                    "vitalcare.alliedschool@gmail.com",
 
                 subject:
                     "Registration Confirmation – Vital Care Allied Health Training Institute",
