@@ -398,7 +398,7 @@ async function sendRegistrationEmails(session) {
                             If you have any questions,
                             please contact our office at
                             <strong>
-                                (631) 748-7598
+                                (347) 233-2664
                             </strong>.
                         </p>
 
