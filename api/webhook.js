@@ -2,6 +2,11 @@ const Stripe = require("stripe");
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
+
+/* ==========================================
+   GET RAW BODY FOR STRIPE WEBHOOK
+========================================== */
+
 async function getRawBody(readable) {
 
     const chunks = [];
@@ -13,11 +18,15 @@ async function getRawBody(readable) {
                 ? chunk
                 : Buffer.from(chunk)
         );
-
     }
 
     return Buffer.concat(chunks);
 }
+
+
+/* ==========================================
+   SAVE ORDER TO SUPABASE
+========================================== */
 
 async function saveOrderToSupabase(session) {
 
@@ -31,9 +40,6 @@ async function saveOrderToSupabase(session) {
 
                 "apikey":
                     process.env.SUPABASE_SERVICE_ROLE_KEY,
-
-                "Authorization":
-                    `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY}`,
 
                 "Prefer":
                     "return=representation"
@@ -77,12 +83,12 @@ async function saveOrderToSupabase(session) {
 
     if (!response.ok) {
 
-        const errorText = await response.text();
+        const errorText =
+            await response.text();
 
         /*
-        Stripe peut renvoyer le même webhook plusieurs fois.
-        Comme stripe_session_id est UNIQUE, Supabase peut
-        répondre avec une erreur de duplication.
+        Stripe may send the same webhook again.
+        stripe_session_id is UNIQUE in Supabase.
         */
 
         if (
@@ -103,13 +109,338 @@ async function saveOrderToSupabase(session) {
         );
     }
 
-    const order = await response.json();
+    const order =
+        await response.json();
 
     console.log(
         "✅ Order saved to Supabase:",
         order
     );
 }
+
+
+/* ==========================================
+   SEND REGISTRATION EMAILS
+========================================== */
+
+async function sendRegistrationEmails(session) {
+
+    const firstName =
+        session.metadata?.firstName;
+
+    const lastName =
+        session.metadata?.lastName;
+
+    const email =
+        session.metadata?.email;
+
+    const phone =
+        session.metadata?.phone;
+
+    const program =
+        session.metadata?.program;
+
+    const amount =
+        `$${(session.amount_total / 100).toFixed(2)}`;
+
+
+    /* ======================================
+       EMAIL TO VITAL CARE
+    ====================================== */
+
+    const schoolResponse = await fetch(
+        "https://api.resend.com/emails",
+        {
+            method: "POST",
+
+            headers: {
+
+                "Authorization":
+                    `Bearer ${process.env.RESEND_API_KEY}`,
+
+                "Content-Type":
+                    "application/json"
+            },
+
+            body: JSON.stringify({
+
+                from:
+                    "Vital Care Admissions <admissions@vitalcareah.com>",
+
+                to: [
+                    "vitalcare.alliedschool@gmail.com"
+                ],
+
+                reply_to:
+                    email,
+
+                subject:
+                    `New Student Registration – ${program}`,
+
+                html: `
+                <div style="
+                    background:#f4f4f4;
+                    padding:40px 20px;
+                    font-family:Arial,sans-serif;
+                    color:#222;
+                ">
+
+                    <div style="
+                        max-width:600px;
+                        margin:auto;
+                        background:#ffffff;
+                        padding:40px;
+                        border-radius:12px;
+                    ">
+
+                        <h1 style="
+                            font-size:24px;
+                            margin-top:0;
+                        ">
+                            New Student Registration
+                        </h1>
+
+                        <p>
+                            A student has successfully
+                            completed their registration
+                            payment.
+                        </p>
+
+                        <hr style="
+                            border:none;
+                            border-top:1px solid #eee;
+                            margin:30px 0;
+                        ">
+
+                        <p>
+                            <strong>Student Name</strong><br>
+                            ${firstName} ${lastName}
+                        </p>
+
+                        <p>
+                            <strong>Program</strong><br>
+                            ${program}
+                        </p>
+
+                        <p>
+                            <strong>Email</strong><br>
+                            <a href="mailto:${email}">
+                                ${email}
+                            </a>
+                        </p>
+
+                        <p>
+                            <strong>Phone Number</strong><br>
+                            ${phone}
+                        </p>
+
+                        <p>
+                            <strong>Registration Fee</strong><br>
+                            ${amount}
+                        </p>
+
+                        <p>
+                            <strong>Payment Status</strong><br>
+                            Paid
+                        </p>
+
+                        <hr style="
+                            border:none;
+                            border-top:1px solid #eee;
+                            margin:30px 0;
+                        ">
+
+                        <p style="
+                            color:#777;
+                            font-size:12px;
+                        ">
+                            Payment reference:<br>
+                            ${session.id}
+                        </p>
+
+                    </div>
+
+                </div>
+                `
+            })
+        }
+    );
+
+    if (!schoolResponse.ok) {
+
+        const error =
+            await schoolResponse.text();
+
+        throw new Error(
+            `Resend school email error: ${error}`
+        );
+    }
+
+    console.log(
+        "✅ Admission notification sent to Vital Care"
+    );
+
+
+    /* ======================================
+       CONFIRMATION EMAIL TO STUDENT
+    ====================================== */
+
+    const studentResponse = await fetch(
+        "https://api.resend.com/emails",
+        {
+            method: "POST",
+
+            headers: {
+
+                "Authorization":
+                    `Bearer ${process.env.RESEND_API_KEY}`,
+
+                "Content-Type":
+                    "application/json"
+            },
+
+            body: JSON.stringify({
+
+                from:
+                    "Vital Care Admissions <admissions@vitalcareah.com>",
+
+                to: [
+                    email
+                ],
+
+                reply_to:
+                    "vitalcare.alliedschool@gmail.com",
+
+                subject:
+                    "Registration Confirmation – Vital Care Allied Health Training Institute",
+
+                html: `
+                <div style="
+                    background:#f4f4f4;
+                    padding:40px 20px;
+                    font-family:Arial,sans-serif;
+                    color:#222;
+                ">
+
+                    <div style="
+                        max-width:600px;
+                        margin:auto;
+                        background:#ffffff;
+                        padding:40px;
+                        border-radius:12px;
+                    ">
+
+                        <h1 style="
+                            font-size:26px;
+                            margin-top:0;
+                        ">
+                            Registration Confirmed
+                        </h1>
+
+                        <p>
+                            Dear ${firstName},
+                        </p>
+
+                        <p>
+                            Thank you for registering with
+                            <strong>
+                                Vital Care Allied Health
+                                Training Institute.
+                            </strong>
+                        </p>
+
+                        <p>
+                            Your registration fee has been
+                            successfully received.
+                        </p>
+
+                        <div style="
+                            background:#f8f6f0;
+                            padding:22px;
+                            border-radius:10px;
+                            margin:25px 0;
+                        ">
+
+                            <p style="
+                                margin-top:0;
+                            ">
+                                <strong>
+                                    Program
+                                </strong>
+                            </p>
+
+                            <p>
+                                ${program}
+                            </p>
+
+                            <p>
+                                <strong>
+                                    Registration Fee
+                                </strong>
+                            </p>
+
+                            <p style="
+                                margin-bottom:0;
+                            ">
+                                ${amount}
+                            </p>
+
+                        </div>
+
+                        <p>
+                            Our admissions team will contact
+                            you regarding class availability,
+                            required documents, and your
+                            preferred start date.
+                        </p>
+
+                        <p>
+                            If you have any questions,
+                            please contact our office at
+                            <strong>
+                                (631) 748-7598
+                            </strong>.
+                        </p>
+
+                        <p style="
+                            margin-top:35px;
+                        ">
+                            Thank you,<br><br>
+
+                            <strong>
+                                Vital Care Allied Health
+                                Training Institute
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </div>
+                `
+            })
+        }
+    );
+
+    if (!studentResponse.ok) {
+
+        const error =
+            await studentResponse.text();
+
+        throw new Error(
+            `Resend student email error: ${error}`
+        );
+    }
+
+    console.log(
+        "✅ Confirmation email sent to student:",
+        email
+    );
+}
+
+
+/* ==========================================
+   STRIPE WEBHOOK
+========================================== */
 
 module.exports = async (req, res) => {
 
@@ -134,8 +465,7 @@ module.exports = async (req, res) => {
             stripe.webhooks.constructEvent(
                 rawBody,
                 signature,
-                process.env
-                    .STRIPE_WEBHOOK_SECRET
+                process.env.STRIPE_WEBHOOK_SECRET
             );
 
     } catch (err) {
@@ -151,6 +481,7 @@ module.exports = async (req, res) => {
                 `Webhook Error: ${err.message}`
             );
     }
+
 
     try {
 
@@ -170,23 +501,13 @@ module.exports = async (req, res) => {
                 );
 
                 console.log(
-                    "Session ID:",
-                    session.id
+                    "Student:",
+                    `${session.metadata?.firstName} ${session.metadata?.lastName}`
                 );
 
                 console.log(
                     "Program:",
                     session.metadata?.program
-                );
-
-                console.log(
-                    "First Name:",
-                    session.metadata?.firstName
-                );
-
-                console.log(
-                    "Last Name:",
-                    session.metadata?.lastName
                 );
 
                 console.log(
@@ -200,31 +521,35 @@ module.exports = async (req, res) => {
                 );
 
                 console.log(
-                    "Amount Paid:",
+                    "Amount:",
                     `$${(
                         session.amount_total / 100
                     ).toFixed(2)}`
                 );
 
-                console.log(
-                    "Payment Status:",
-                    session.payment_status
-                );
-
-                /*
-                On sauvegarde uniquement
-                si le paiement est réellement payé.
-                */
 
                 if (
-                    session.payment_status ===
-                    "paid"
+                    session.payment_status === "paid"
                 ) {
+
+                    /*
+                    1. Save registration
+                    */
 
                     await saveOrderToSupabase(
                         session
                     );
+
+
+                    /*
+                    2. Send both emails
+                    */
+
+                    await sendRegistrationEmails(
+                        session
+                    );
                 }
+
 
                 console.log(
                     "===================================="
@@ -233,6 +558,7 @@ module.exports = async (req, res) => {
                 break;
             }
 
+
             default:
 
                 console.log(
@@ -240,11 +566,13 @@ module.exports = async (req, res) => {
                 );
         }
 
+
         return res
             .status(200)
             .json({
                 received: true
             });
+
 
     } catch (err) {
 
@@ -253,11 +581,10 @@ module.exports = async (req, res) => {
             err
         );
 
+
         /*
-        Important :
-        on renvoie 500 pour que Stripe
-        retente automatiquement le webhook
-        si Supabase a eu un problème temporaire.
+        Returning 500 tells Stripe that
+        processing failed so it can retry.
         */
 
         return res
